@@ -1,0 +1,14 @@
+<div class=" bg-slate-700 text-white text-center p-2 mt-44">
+  <mat-tab-group mat-align-tabs="start" class="text-white border-slate-700 bg-slate-900 rounded">
+    <mat-tab label="Screenshots" screen shots *ngIf="game.screenshots?.length">
+      <img class=" mt-1 w-11/12  ml-5  rounded " *ngFor="let screenshot of game.screenshots"
+        src="{{ screenshot.image }}" alt="screenshot">
+    </mat-tab>
+    <mat-tab label="Trailers" *ngIf="game.trailers?.length">
+      <video class=" w-11/12 m-6  " controls *ngFor="let trailer of game.trailers">
+        <source src="{{trailer.data.max}}" type="video/mp4" />
+        Your browser does not support the video tag
+      </video>
+    </mat-tab>
+  </mat-tab-group>
+</div>
