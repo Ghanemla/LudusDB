@@ -1,0 +1,37 @@
+<div class="min-h-screen py-6 flex flex-col justify-center sm:py-12">
+  <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-violet-300 to-violet-700 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
+    </div>
+    <div class="relative px-4 py-10 bg-slate-800  shadow-lg sm:rounded-3xl sm:p-20">
+      <div class="max-w-md mx-auto">
+        <div>
+          <h1 class="text-2xl font-bold drop-shadow-lg">LudusDB</h1>
+        </div>
+        <div class="divide-y divide-gray-200">
+          <div class="py-8 text-base leading-6 space-y-4 text-white sm:text-lg sm:leading-7">
+            <div class="relative">
+              <input [(ngModel)]="email" autocomplete="off" id="email" name="email" type="text"
+                class="peer placeholder-transparent h-10 w-full border-b-2  text-gray-900 border border-slate-800 rounded-lg bg-slate-500 focus:outline-none focus:borer-rose-600"
+                placeholder="Email address">
+              <label for="email"
+                class="absolute left-2 -top-3.5 text-black text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-4 peer-focus:text-white peer-focus:text-sm">Email
+                Address</label>
+            </div>
+            <div class="relative">
+              <input [(ngModel)]="password" autocomplete="off" id="password" name="password" type="password"
+                class="peer placeholder-transparent h-10 w-full border-b-2  text-gray-900 border border-slate-800 rounded-lg bg-slate-500 focus:outline-none focus:borer-rose-600"
+                placeholder="Password">
+              <label for="password"
+                class="absolute left-2 -top-3.5 text-black  text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-4 peer-focus:text-white peer-focus:text-sm">Password</label>
+            </div>
+            <div class="relative">
+              <button (click)="login()" type="button"
+                class="text-white   bg-violet-500 hover:bg-violet-700 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2 ">login</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
