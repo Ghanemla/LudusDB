@@ -1,0 +1,29 @@
+<div class="details" *ngIf="game">
+  <div class=" h-[442px] overflow-hidden rounded">
+    <img class="w-full" [src]="trustedImageUrl" alt="game background image">
+
+
+  </div>
+  <div class=" text-center relative ">
+    <div class=" max-w-4xl mx-auto  relative">
+      <div
+        class="text-white font-bold mt-5  overflow-hidden border-4 rounded border-slate-700 bg-slate-700 shadow-md shadow-indigo-500/70 ">
+        <h1 class=" text-7xl text-white font-bold whitespace-nowrap leading-10">{{game.name}}</h1>
+        <h2 class="game-release"> Released: {{game.released | date}}</h2>
+        <p class="text-white font-bold">
+          <span *ngFor=" let genre of game.genres; let last = last"> {{genre.name}}<span *ngIf="!last"></span>,
+          </span>
+        </p>
+        <div class=" absolute top-50 ">
+          <mwl-gauge class=" w-56 h-36 block p-3 text-center font-bold text-2xl" [max]="100" [dialStartAngle]="180"
+            [dialEndAngle]="0" [value]="gameRating" [animated]="true" [color]="getColor" [animationDuration]="2">
+          </mwl-gauge>
+          <a class="text-white top-5 bg-violet-500 hover:bg-violet-700 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-2 py-2"
+            target="_blank" href="{{game.metacritic_url}}">Metacritic Review</a>
+        </div>
+      </div>
+
+    </div>
+    <app-game-tabs [game]="game"></app-game-tabs>
+  </div>
+</div>
