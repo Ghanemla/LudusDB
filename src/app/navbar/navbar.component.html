@@ -1,0 +1,28 @@
+<!-- component -->
+<nav id="header" class="w-full z-30  py-1 bg-slate-800 shadow-lg border-b border-violet-500  mb-5">
+  <div class="w-full flex items-center justify-between mt-0 px-6 py-2">
+
+    <nav>
+      <ul class="md:flex items-center justify-between text-base text-blue-600 pt-4 md:pt-0">
+        <li><a
+            class=" text-white font-bold cursor-pointer no-underline inline-block  hover:text-black  text-lg py-2 px-4 lg:-ml-2"
+            routerLink="/">LudusDB</a></li>
+      </ul>
+    </nav>
+
+
+    <div class="order-2 md:order-3 flex flex-wrap items-center justify-end " id="nav-content">
+      <div class="auth flex items-center w-full md:w-full">
+        <button *ngIf="!isLoggedIn" type="button" routerLink="/login"
+          class="text-white   bg-violet-500 hover:bg-violet-700 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2 ">Login</button>
+
+        <button *ngIf="isLoggedIn" type="button" (click)="logout()"
+          class="text-white   bg-violet-500 hover:bg-violet-700 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2 ">Logout</button>
+
+        <button *ngIf="!isLoggedIn" type="button" routerLink="/register"
+          class="text-white   bg-violet-500 hover:bg-violet-700 focus:ring-4 focus:outline-none   ml-5 font-medium rounded-lg text-sm px-4 py-2 ">Register</button>
+      </div>
+
+    </div>
+  </div>
+</nav>
