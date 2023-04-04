@@ -1,0 +1,51 @@
+<div class="pl-3 mx-auto">
+  <mat-form-field>
+    <mat-label>Sort</mat-label>
+    <mat-select panelClass="sort-select" [(ngModel)]="sort" (selectionChange)="searchGames(sort)">
+      <mat-option value="name">Name</mat-option>
+      <mat-option value="-released">Released</mat-option>
+      <mat-option value="-added">Added</mat-option>
+      <mat-option value="-updated">Updated</mat-option>
+      <mat-option value="-rating">Rating</mat-option>
+      <mat-option value="metacritic">Metacritic</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<!-- //nest page button? -->
+<div class=" flex justify-center ">
+  <button type="button" (click)="prevPage()"
+    class="text-white relative right-2.5 bottom-2.5 bg-violet-500 hover:bg-violet-700 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2 ">prev
+    page</button>
+  <button type="button" (click)="nextPage()"
+    class="text-white relative right-2.5 bottom-2.5 bg-violet-500 hover:bg-violet-700 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2 ml-5">Next
+    page</button>
+
+</div>
+<!-- //nest page button? -->
+
+<div class="flex flex-wrap justify-center max-w-l mx-auto rounded">
+  <ng-container *ngFor="let game of games">
+    <div
+      class="w-72 m-2.5 h-80  overflow-hidden border-4 rounded border-slate-700 bg-slate-700 shadow-md shadow-indigo-300/50 duration-75 cursor-pointer hover:shadow-xl hover:shadow-indigo-600/50 hover:translate-x-0"
+      (click)="openGameDetails(game.id.toString())">
+      <div class=" bg-black relative h-44 text-gray-500 text-center rounded">
+        <img class=" absolute top-0 left-0 right-0 mx-auto h-44 rounded" *ngIf="game.background_image"
+          src="{{game.background_image}}" alt="game thumbnail">
+        <p *ngIf="!game.background_image">No Image</p>
+
+        <!-- <button type="button"
+          class="text-white absolute right-2.5 bottom-2.5 bg-violet-500 hover:bg-violet-700 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2 ">Add
+          &#43;</button> -->
+
+      </div>
+      <div class="p-5 flex flex-col justify-end h-45">
+        <p class="text-gray-500 font-bold text-base mb-5 whitespace-nowrap text-ellipsis overflow-hidden">{{ game.name}}
+        </p>
+        <div class="flex ">
+          <img class="w-6 mr-5 " *ngFor="let gamePlatform of game.parent_platforms"
+            src="assets/images/platforms/{{ gamePlatform.platform.slug }}.svg" alt="{{ gamePlatform.platform.slug }}">
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
