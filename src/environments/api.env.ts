@@ -1,3 +1,3 @@
 export const apiEnv = {
-  api_key: '',
+  api_key: '1',
 };
