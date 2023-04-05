@@ -15,7 +15,12 @@ export class HttpHeadersInterceptorInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    req = req.clone({});
+    req = req.clone({
+      // setHeaders: {
+      // },
+      // setParams: {
+      // }
+    });
     return next.handle(req);
   }
 }
