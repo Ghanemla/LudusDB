@@ -2,7 +2,7 @@
 
 
 #apiKey
-/api.env.ts
+api.env.ts
 
 # Compiled output
 /dist
