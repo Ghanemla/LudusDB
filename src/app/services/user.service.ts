@@ -15,7 +15,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class UserService {
   isLoggedIn = false;
-
+  username = '';
   configUrl = 'http://127.0.0.1:8000/api/';
 
   httpOptions = {

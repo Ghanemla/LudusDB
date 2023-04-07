@@ -1,47 +1,48 @@
 import { Component } from '@angular/core';
-import { UserService } from "../services/user.service";
+import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  email: string = "";
-  password: string = "";
+  email: string = '';
+  password: string = '';
 
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private userService: UserService
+  ) {}
 
- constructor(private http: HttpClient, private router: Router,private userService: UserService){}
+  login() {
+    const url = 'http://127.0.0.1:8000/api/login';
+    const data = { email: this.email, password: this.password };
 
-  login(){
-    const url = 'http://127.0.0.1:8000/api/login'
-    const data = { email: this.email, password: this.password }
-
-    this.http.post(url,data).subscribe((response: any) =>{
-      console.log('login success', response)
-      localStorage.setItem('token',response.access_token)
-      this.userService.isLoggedIn = true;
-      this.router.navigate(['/'])
-     
-    },
-    (error) => {
-      console.error('fail', error)
-    }
-
+    this.http.post(url, data).subscribe(
+      (response: any) => {
+        console.log('login success', response);
+        localStorage.setItem('token', response.token);
+        localStorage.setItem('user', response.user.name);
+        this.userService.isLoggedIn = true;
+        this.userService.username = response.user.name;
+        console.log(response.user.name);
+        this.router.navigate(['/']);
+      },
+      (error) => {
+        console.error('fail', error);
+      }
     );
   }
 
-
-  logout(){
+  logout() {
     localStorage.removeItem('token');
     this.userService.isLoggedIn = false;
-    this.router.navigate(['/login'])
+    this.router.navigate(['/login']);
   }
-
-
-
 
   // me = {
   //   id: 0,
@@ -83,10 +84,4 @@ export class LoginComponent {
   //     this.me = res[0];
   //   })
   // }
-  
-
-
-
- 
-
 }
