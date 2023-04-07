@@ -22,6 +22,7 @@ import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { StartComponent } from './start/start.component';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +34,7 @@ import { StartComponent } from './start/start.component';
     LoginComponent,
     RegisterComponent,
     StartComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
