@@ -30,7 +30,7 @@ export class LoginComponent {
         this.userService.isLoggedIn = true;
         this.userService.username = response.user.name;
         console.log(response.user.name);
-        this.router.navigate(['/']);
+        this.router.navigate(['/index']);
       },
       (error) => {
         console.error('fail', error);
