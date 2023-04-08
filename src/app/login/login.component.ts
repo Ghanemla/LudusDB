@@ -19,7 +19,7 @@ export class LoginComponent {
   ) {}
 
   login() {
-    const url = 'http://127.0.0.1:8000/api/login';
+    const url = this.userService.configUrl + 'login';
     const data = { email: this.email, password: this.password };
 
     this.http.post(url, data).subscribe(
@@ -29,7 +29,6 @@ export class LoginComponent {
         localStorage.setItem('user', response.user.name);
         this.userService.isLoggedIn = true;
         this.userService.username = response.user.name;
-        console.log(response.user.name);
         this.router.navigate(['/index']);
       },
       (error) => {
