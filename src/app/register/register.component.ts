@@ -13,7 +13,6 @@ export class RegisterComponent {
   email: string = '';
   password: string = '';
   password_confirmation: string = '';
-  // isLoggedIn: boolean = false;
 
   constructor(
     private http: HttpClient,

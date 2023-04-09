@@ -42,45 +42,4 @@ export class LoginComponent {
     this.userService.isLoggedIn = false;
     this.router.navigate(['/login']);
   }
-
-  // me = {
-  //   id: 0,
-  //   name: "",
-  //   email: "",
-  //   password: "",
-  // }
-
-  // user = {
-  //   id: 0,
-  //   name: "",
-  //   email: "",
-  //   password: ""
-  // }
-
-  // constructor(private userService: UserService,private http: HttpClient, private router: Router){ }
-
-  // login(){
-  //   this.userService.loginUser(this.me)
-  //   this.router.navigate(['/'])
-  // }
-
-  // login() {
-  //   const body = {
-  //     email: this.email,
-  //     password: this.password
-  //   };
-
-  //   this.http.post(this.userService.configUrl, body).subscribe((data: any) => {
-  //     localStorage.setItem('token', data.token);
-  //   }, error => {
-  //     console.log(error);
-  //   });
-  // }
-
-  // getUser(){
-  //   this.userService.getUsers().subscribe(res => {
-  //     console.log(res[0]);
-  //     this.me = res[0];
-  //   })
-  // }
 }
